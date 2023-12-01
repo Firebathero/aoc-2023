@@ -1,5 +1,4 @@
 #include <ctype.h>
-#include <gperftools/profiler.h>
 #include <stdio.h>
 #include "one_eye_shut_cryptic_lullaby_bit_cthulu_watching_you_input_0xDEADBEEF.h"
 #include <time.h>
@@ -7,8 +6,8 @@
 #define DIGIT_ARR_LEN 10
 
 int main() {
-    clock_t start = clock();
     FILE *file = fopen("input.txt", "r");
+    clock_t start = clock();
     const char* digits[] =
     {
             "zero",
@@ -58,10 +57,10 @@ int main() {
         considered_harmful:
         res += first * 10 + last;
     }
-    printf("%d", res);
     clock_t end = clock();
     double cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
     printf("%f seconds\n", cpu_time_used);
+    printf("%d", res);
 
     fclose(file);
     return 0;
