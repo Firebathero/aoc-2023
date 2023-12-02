@@ -51,30 +51,21 @@ int main() {
     FILE *file = fopen("input.txt", "r");
     clock_t start = clock();
     int res = 0;
-    int game_num = 1;
 
     cth_buf_t line;
     while ((line = cth_buf_getl(file)).buf != NULL) {
         cth_buf_t *p_line = &line;
 
-        while (p_line->readpos < p_line->len && p_line->buf[p_line->readpos] != ':') {
-            p_line->readpos++;
-        }
-        if (p_line->readpos < p_line->len && p_line->buf[p_line->readpos] == ':') {
-            p_line->readpos++;
-        }
-        while (p_line->readpos < p_line->len && p_line->buf[p_line->readpos] == ' ') {
-            p_line->readpos++;
-        }
+        SKIP_TO_CHAR(p_line, ':')
+        ADVANCE_PAST_CHAR(p_line, ':')
+        SKIP_SPACES(p_line)
+
         int g_max, b_max, r_max;
         g_max = b_max = r_max = 0;
+
         while (p_line->readpos < p_line->len) {
             int32_t num = consume_int(p_line);
-
-            while (p_line->readpos < p_line->len && p_line->buf[p_line->readpos] == ' ') {
-                p_line->readpos++;
-            }
-
+            SKIP_SPACES(p_line)
             COLOR c = consume_color(p_line);
             switch (c) {
                 case RED:
@@ -89,20 +80,10 @@ int main() {
                 default:
                     break;
             }
-            while (p_line->readpos < p_line->len && p_line->buf[p_line->readpos] != ',' && p_line->buf[p_line->readpos] != ';') {
-                p_line->readpos++;
-            }
-            if (p_line->readpos < p_line->len && (p_line->buf[p_line->readpos] == ',') || (p_line->buf[p_line->readpos] == ';')) {
-                p_line->readpos++;
-            }
-            while (p_line->readpos < p_line->len && p_line->buf[p_line->readpos] == ' ') {
-                p_line->readpos++;
-            }
+            ADVANCE_TO_NEXT_SEGMENT(p_line)
+            SKIP_SPACES(p_line)
         }
-        printf("%d %d %d\n", g_max, b_max, r_max);
         res += (g_max * r_max * b_max);
-        printf("Current result is %d\n", res);
-        game_num++;
     }
 
     clock_t end = clock();

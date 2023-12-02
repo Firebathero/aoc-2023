@@ -18,6 +18,28 @@ typedef struct {
     size_t      readpos;
 } cth_buf_t;
 
+#define ADVANCE_TO_NEXT_SEGMENT(p_line) \
+    while ((p_line)->readpos < (p_line)->len && (p_line)->buf[(p_line)->readpos] != ',' && (p_line)->buf[(p_line)->readpos] != ';') { \
+        (p_line)->readpos++; \
+    } \
+    if ((p_line)->readpos < (p_line)->len) (p_line)->readpos++;
+
+#define SKIP_TO_CHAR(p_line, char_to_find) \
+    while ((p_line)->readpos < (p_line)->len && (p_line)->buf[(p_line)->readpos] != (char_to_find)) { \
+        (p_line)->readpos++; \
+    }
+
+#define SKIP_SPACES(p_line) \
+    while ((p_line)->readpos < (p_line)->len && (p_line)->buf[(p_line)->readpos] == ' ') { \
+        (p_line)->readpos++; \
+    }
+
+#define ADVANCE_PAST_CHAR(p_line, char_to_skip) \
+    if ((p_line)->readpos < (p_line)->len && (p_line)->buf[(p_line)->readpos] == (char_to_skip)) { \
+        (p_line)->readpos++; \
+    }
+
+
 #define cth_string(str)     { sizeof(str) - 1, (u_char *) str }
 #define cth_str_set(str, text)                                               \
     (str)->len = sizeof(text) - 1; (str)->data = (u_char *) text
