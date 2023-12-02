@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define FATBUF 10000
+#define FATBUF 256
 
 typedef struct {
     char* data;
