@@ -11,6 +11,7 @@ static const int lookup_dig[256] = {
         ['4'] = 1, ['5'] = 1, ['6'] = 1, ['7'] = 1,
         ['8'] = 1, ['9'] = 1
 };
+
 static const char* digits[] =
         {
                 "zero",
@@ -24,6 +25,7 @@ static const char* digits[] =
                 "eight",
                 "nine",
         };
+
 int main() {
 
     FILE *file = fopen("input.txt", "r");

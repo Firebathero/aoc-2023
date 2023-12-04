@@ -7,6 +7,12 @@
 #define FATBUF 256
 
 typedef struct {
+    int x;
+    int y;
+    int len;
+} xy_t;
+
+typedef struct {
     char*       data;
     size_t      len;
 } cth_str_t;
