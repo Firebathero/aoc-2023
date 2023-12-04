@@ -6,6 +6,7 @@
 
 #define FATBUF 256
 
+
 typedef struct {
     int x;
     int y;
