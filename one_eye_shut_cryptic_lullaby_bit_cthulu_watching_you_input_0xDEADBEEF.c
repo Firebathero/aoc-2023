@@ -19,10 +19,15 @@ cth_buf_t cth_buf_getl(FILE *file) {
     if (fgets(buf, FATBUF, file) != NULL) {
         line.buf = buf;
         line.len = line.size = strlen(buf);
+        if (line.buf[line.len - 1] == '\n') {
+            line.buf[line.len - 1] = '\0';
+            line.len--;
+            line.size--;
+        }
     }
-
     return line;
 }
+
 
 
 void cth_strtok(char *line, const char *delimiter) {

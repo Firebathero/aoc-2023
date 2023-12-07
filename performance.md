@@ -8,11 +8,6 @@
 - **Cycles**: `?`
 
 
-#### TODOs
-- [ ] optimize strcmp
-- [ ] callgrind run
-- [ ] drop some businessman Java on the h8rs
-
 ## Day 2
 ### C stats
 - **Runtime**: `0.000080s`
@@ -21,17 +16,17 @@
 #### TODOs
 - [ ] still first draft, needs lot of refactoring
 - [ ] callgrind run
-- 
 ## Day 3
 ### C stats
 - **Runtime**: `.000297`
 - **Cycles**: `?`
-
-#### TODOs
-- [ ] Clean this rat shit up
+- 
+## Day 5
+### C stats
+- **Runtime**: `.000750`
 
 ---
-### Global TODOs
+### Global TODO
 
 - [ ] Simplify build/profiling with make
 - [ ] Refactor this page to be columnar for easier lang compare
