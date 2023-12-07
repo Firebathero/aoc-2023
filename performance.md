@@ -18,13 +18,16 @@
 - [ ] callgrind run
 ## Day 3
 ### C stats
-- **Runtime**: `.000297`
+- **Runtime**: `.000297s`
 - **Cycles**: `?`
 - 
 ## Day 5
 ### C stats
-- **Runtime**: `.000750`
+- **Runtime**: `.000750s`
 
+## Day 6
+### C stats
+- **Runtime**: `.000030s`
 ---
 ### Global TODO
 
