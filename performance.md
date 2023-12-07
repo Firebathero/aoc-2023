@@ -31,6 +31,12 @@
 ---
 ### Global TODO
 
+## Day 7
+### C stats
+- **Runtime**: `.000700s`
+---
+### Global TODO
+
 - [ ] Simplify build/profiling with make
 - [ ] Refactor this page to be columnar for easier lang compare
 - [ ] Profile ocaml, java, rust, zig, ___ pull one from hat
