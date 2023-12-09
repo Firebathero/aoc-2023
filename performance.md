@@ -34,6 +34,10 @@
 ## Day 7
 ### C stats
 - **Runtime**: `.000700s`
+
+## Day 8
+### C stats
+- **Runtime**: `.0.012423s`
 ---
 ### Global TODO
 

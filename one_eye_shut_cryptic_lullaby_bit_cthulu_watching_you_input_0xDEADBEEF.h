@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define FATBUF 256
+#define FATBUF 8096
 
 
 typedef struct {

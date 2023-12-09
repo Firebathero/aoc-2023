@@ -14,15 +14,14 @@ cth_str_t cth_str_getl(FILE *file) {
 
 cth_buf_t cth_buf_getl(FILE *file) {
     static char buf[FATBUF];
-    cth_buf_t line = {NULL, 0, 0, 0};
+    cth_buf_t line = {NULL, FATBUF, 0, 0};
 
     if (fgets(buf, FATBUF, file) != NULL) {
         line.buf = buf;
-        line.len = line.size = strlen(buf);
+        line.len = strlen(buf);
         if (line.buf[line.len - 1] == '\n') {
             line.buf[line.len - 1] = '\0';
             line.len--;
-            line.size--;
         }
     }
     return line;
