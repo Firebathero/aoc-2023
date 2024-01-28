@@ -16,17 +16,19 @@ cth_buf_t cth_buf_getl(FILE *file) {
     static char buf[FATBUF];
     cth_buf_t line = {NULL, FATBUF, 0, 0};
 
-    if (fgets(buf, FATBUF, file) != NULL) {
+    while (fgets(buf, FATBUF, file) != NULL) {
         line.buf = buf;
         line.len = strlen(buf);
-        if (line.buf[line.len - 1] == '\n') {
-            line.buf[line.len - 1] = '\0';
-            line.len--;
+        line.len = strcspn(line.buf, "\r\n");
+        line.buf[line.len] = '\0';
+
+        // Skip empty lines
+        if (line.len > 0) {
+            break;
         }
     }
     return line;
 }
-
 
 
 void cth_strtok(char *line, const char *delimiter) {
